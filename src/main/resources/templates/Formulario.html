@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelea.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Formulario</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+
+            }
+            h1 {
+                text-align: center;
+                font-family: Georgia serif;
+            }
+            .form-group {
+                max-width: 450px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color:  #11A1F4;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-family: Palatino;
+                font-size: 25px;
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px 0px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .boton{
+                text-align:center;
+                background-color:#66DBD3;
+                font-family:Didot serif;
+                font-size:20px;
+                width:50px;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1> Iniciar Sesion</h1>
+        <form th:action="@{/guardar}" method="post">
+            <a th:href="@{/anexar}">Registrarse</a>
+            <div th:if="${mensaje}" style="color: red">
+            <p th:text="${mensaje}"></p>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario"><br>
+
+                <label for="correo">Correo:</label>
+                <input type="email" name="correo"><br>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" name="contrasena"><br>
+
+                <input class="boton" type="submit" name="guardar" value="Iniciar Sesion"/>
+            </div>
+    </body>
+</html>
+
+

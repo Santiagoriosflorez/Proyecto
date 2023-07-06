@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmins:th="http://www.thymleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Registrar</title>
+        <meta charset="UTF-8" />
+         <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+
+            }
+            h1 {
+                text-align: center;
+                font-family: Georgia serif;
+            }
+            .form-group {
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color:  #99E5FC;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                font-family: Palatino;
+                font-size: 25px;
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px 0px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Datos del nuevo Usuario </h1>
+        <a th:href="@{ / }"> Devolver </a>
+        <div th:if="${mensaje}" style="color: red">
+            <p th:text="${mensaje}">contraseña tiene que tener almenos 8 caracteres</p>
+            </div>
+        <br/>
+         <div class="form-group">
+        <form th:action="@{/salvar}" method="post" >
+           <!-- <input type="hidden" name ="id_individuo" th:field="{id_individuo}"-->
+            <label for="usuario">Usuario: </label>
+            <input type="text" name="usuario" ><br>
+            </br>
+            <label for="correo">Correo: </label>
+            <input type="email" name="correo"><br>
+            </br>
+           <label for="contrasena">Contraseña: </label>
+            <input type="password" name="contrasena"><br>
+                    <input type="submit" name="salvar" value="Salvar" style="cursor:pointer"/>
+        </form>
+         </div>
+    </body>
+</html>
